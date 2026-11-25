@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0c0d10"><title>INK/RATE — Exchange Terminal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="grain"></div>
+<div class="app">
+<header class="topbar">
+ <a class="brand" href="#"><span class="sigil">↗</span><span>INK<span class="slash">/</span>RATE</span><small>TERMINAL 02</small></a>
+ <div class="top-right"><div class="live"><i></i><span id="status">Подключение…</span></div><button class="round-btn" id="refresh" aria-label="Обновить" title="Обновить курсы">↻</button></div>
+</header>
+<main>
+<section class="intro">
+ <div class="kicker">THE EXCHANGE DESK <span>— EST. 2026</span></div>
+ <div class="intro-grid"><div><h1>Value is<br><em>relative.</em></h1><p>Единое пространство для мировых валют и цифровых активов.</p></div>
+ <div class="intro-note"><span class="note-mark">✳</span><span>REAL-TIME<br>MARKET DATA</span><b>01 / 04</b></div></div>
+</section>
+<section class="workspace">
+ <div class="section-head"><span>01 — CONVERTER</span><span class="subtle">FIAT & DIGITAL ASSETS</span></div>
+ <div class="converter">
+  <div class="convert-side">
+   <div class="side-top"><label for="amount">У ВАС ЕСТЬ</label><span>FROM</span></div>
+   <div class="amount-line"><input id="amount" type="number" min="0" step="any" value="300000" inputmode="decimal"><div class="currency-control"><input id="searchFrom" placeholder="Поиск…" aria-label="Поиск валюты"><select id="from" aria-label="Исходная валюта"></select></div></div>
+   <div class="currency-name" id="fromName">—</div>
+  </div>
+  <button class="swap" id="swap" title="Поменять валюты" aria-label="Поменять валюты">⇅</button>
+  <div class="convert-side receive">
+   <div class="side-top"><label>ВЫ ПОЛУЧИТЕ</label><span>TO</span></div>
+   <div class="amount-line"><output id="result">—</output><div class="currency-control"><input id="searchTo" placeholder="Поиск…" aria-label="Поиск валюты"><select id="to" aria-label="Целевая валюта"></select></div></div>
+   <div class="currency-name" id="toName">—</div>
+  </div>
+  <div class="ratebar"><div><span>ОБМЕННЫЙ КУРС</span><strong id="rate">—</strong></div><div class="rate-actions"><button id="favorite" class="text-btn">☆ В избранное</button><button id="copy" class="copy-btn">Копировать ↗</button></div></div>
+ </div>
+ <div class="converter-foot"><span id="updated">Ожидание данных</span><span>КУРСЫ ОРИЕНТИРОВОЧНЫЕ · НЕ ОФЕРТА</span></div>
+</section>
+<section class="market">
+ <div class="section-head"><span>02 — MARKET WATCH</span><span class="subtle">POPULAR ASSETS</span></div>
+ <div class="market-grid" id="marketGrid"><div class="loading-card">Загружаем рынок…</div></div>
+</section>
+<section class="lower-grid">
+ <div class="panel">
+  <div class="section-head"><span>03 — QUICK ACCESS</span><span class="subtle">FREQUENTLY USED</span></div>
+  <div class="quick-list" id="quickList"></div>
+ </div>
+ <div class="panel chart-panel">
+  <div class="section-head"><span>04 — PRICE TRACE</span><span class="subtle">BTC / 7 DAYS</span></div>
+  <div class="chart-meta"><strong id="chartPrice">—</strong><span id="chartChange">LOADING</span></div>
+  <canvas id="chart" height="150"></canvas><div class="chart-caption">BITCOIN · USD · LAST 7 DAYS</div>
+ </div>
+</section>
+</main>
+<footer><span>INK/RATE © 2026</span><span>DESIGNED TO KEEP YOU IN CONTROL.</span><span class="footer-right">BISHKEK / WORLDWIDE</span></footer>
+</div>
+<div class="toast" id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script><script src="script.js"></script>
+</body></html>
